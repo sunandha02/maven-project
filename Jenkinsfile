@@ -10,8 +10,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main',
-                git 'https://github.com/sunandha02/maven-project.git'
+                git branch: 'main', url: 'https://github.com/sunandha02/maven-project.git'
             }
         }
 
@@ -36,11 +35,11 @@ pipeline {
 
     post {
         success {
-            echo 'Library JAR packaged successfully'
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            echo 'Build Successful'
         }
         failure {
             echo 'Build failed'
         }
     }
+}
 }
